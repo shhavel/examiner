@@ -2,8 +2,9 @@ defmodule Examiner.Question do
   use Examiner.Web, :model
 
   schema "questions" do
-    field :testing_id, :integer
+    belongs_to :testing, Examiner.Testing
     field :text, :string
+    has_many :answers, Examiner.Answer
 
     timestamps()
   end
@@ -14,6 +15,7 @@ defmodule Examiner.Question do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:testing_id, :text])
+    |> foreign_key_constraint(:testing_id)
     |> validate_required([:testing_id, :text])
   end
 end

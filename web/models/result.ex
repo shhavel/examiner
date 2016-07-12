@@ -2,7 +2,7 @@ defmodule Examiner.Result do
   use Examiner.Web, :model
 
   schema "results" do
-    field :testing_id, :integer
+    belongs_to :testing, Examiner.Testing
     field :valuation, :float
     field :mark, :string
 
@@ -15,6 +15,7 @@ defmodule Examiner.Result do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:testing_id, :valuation, :mark])
-    |> validate_required([:testing_id, :valuation, :mark])
+    |> foreign_key_constraint(:testing_id)
+    |> validate_required([:testing_id])
   end
 end

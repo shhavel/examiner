@@ -5,6 +5,7 @@ defmodule Examiner.Testing do
     field :locale, :string
     field :grade, :string
     field :name, :string
+    has_many :questions, Examiner.Question
 
     timestamps()
   end

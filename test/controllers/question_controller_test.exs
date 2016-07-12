@@ -1,8 +1,8 @@
 defmodule Examiner.QuestionControllerTest do
   use Examiner.ConnCase
+  import Examiner.Fixtures
 
   alias Examiner.Question
-  @valid_attrs %{testing_id: 42, text: "Найдавнішими архейськими і протерозойськими породами складено:"}
   @invalid_attrs %{text: ""}
 
   test "lists all entries on index", %{conn: conn} do
@@ -16,9 +16,9 @@ defmodule Examiner.QuestionControllerTest do
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
-    conn = post conn, question_path(conn, :create), question: @valid_attrs
+    conn = post conn, question_path(conn, :create), question: valid_attrs(:question)
     assert redirected_to(conn) == question_path(conn, :index)
-    assert Repo.get_by(Question, @valid_attrs)
+    assert Repo.get_by(Question, valid_attrs(:question))
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -27,7 +27,7 @@ defmodule Examiner.QuestionControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    question = Repo.insert! %Question{testing_id: 42, text: "some content"}
+    question = fixture(:question)
     conn = get conn, question_path(conn, :show, question)
     assert html_response(conn, 200) =~ "Show question"
   end
@@ -39,28 +39,28 @@ defmodule Examiner.QuestionControllerTest do
   end
 
   test "renders form for editing chosen resource", %{conn: conn} do
-    question = Repo.insert! %Question{testing_id: 42, text: "some content"}
+    question = fixture(:question)
     conn = get conn, question_path(conn, :edit, question)
     assert html_response(conn, 200) =~ "Edit question"
   end
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
-    question = Repo.insert! %Question{testing_id: 42, text: "some content"}
-    conn = put conn, question_path(conn, :update, question), question: @valid_attrs
+    question = fixture(:question)
+    conn = put conn, question_path(conn, :update, question), question: valid_attrs(:question)
     assert redirected_to(conn) == question_path(conn, :show, question)
-    assert Repo.get_by(Question, @valid_attrs)
+    assert Repo.get_by(Question, valid_attrs(:question))
     assert html_response(conn, 302)
     assert get_flash(conn, :info) == "Question updated successfully."
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    question = Repo.insert! %Question{testing_id: 42, text: "some content"}
+    question = fixture(:question)
     conn = put conn, question_path(conn, :update, question), question: @invalid_attrs
     assert html_response(conn, 200) =~ "Edit question"
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    question = Repo.insert! %Question{testing_id: 42, text: "some content"}
+    question = fixture(:question)
     conn = delete conn, question_path(conn, :delete, question)
     assert redirected_to(conn) == question_path(conn, :index)
     refute Repo.get(Question, question.id)
