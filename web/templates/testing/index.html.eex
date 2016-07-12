@@ -1,0 +1,30 @@
+<h2>Listing testings</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Locale</th>
+      <th>Grade</th>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for testing <- @testings do %>
+    <tr>
+      <td><%= testing.locale %></td>
+      <td><%= testing.grade %></td>
+      <td><%= testing.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: testing_path(@conn, :show, testing), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: testing_path(@conn, :edit, testing), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: testing_path(@conn, :delete, testing), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New testing", to: testing_path(@conn, :new) %>

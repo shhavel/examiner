@@ -17,6 +17,10 @@ defmodule Examiner.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/testings", TestingController
+    resources "/questions", QuestionController
+    resources "/answers", AnswerController
+    resources "/results", ResultController
   end
 
   # Other scopes may use custom stacks.
