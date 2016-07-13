@@ -4,14 +4,15 @@ defmodule Examiner.Repo.Migrations.CreateTesting do
   def change do
     create table(:testings) do
       add :locale, :string, default: "uk", null: false
-      add :grade, :string, null: false
+      add :category, :string, null: false
+      # add :difficulty_level, :string
       add :name, :string, null: false
 
       timestamps()
     end
 
-    create index(:testings, [:locale, :grade])
+    create index(:testings, [:locale, :category])
     create index(:testings, [:locale])
-    create index(:testings, [:grade])
+    create index(:testings, [:category])
   end
 end

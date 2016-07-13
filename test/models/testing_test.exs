@@ -3,7 +3,7 @@ defmodule Examiner.TestingTest do
 
   alias Examiner.Testing
 
-  @valid_attrs %{grade: "some content", locale: "some content", name: "some content"}
+  @valid_attrs %{category: "some content", locale: "some content", name: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

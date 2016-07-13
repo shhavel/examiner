@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Locale</th>
-      <th>Grade</th>
+      <th>Category</th>
       <th>Name</th>
 
       <th></th>
@@ -14,7 +14,7 @@
 <%= for testing <- @testings do %>
     <tr>
       <td><%= testing.locale %></td>
-      <td><%= testing.grade %></td>
+      <td><%= testing.category %></td>
       <td><%= testing.name %></td>
 
       <td class="text-right">

@@ -1,7 +1,26 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+  <h2>Welcome to Examiner!</h2>
+  <p class="lead">Below is a list of available tests,<br />maybe some of them will be interested for you.</p>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Locale</th>
+      <th>Category</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for testing <- @testings do %>
+    <tr>
+      <td><%= testing.locale %></td>
+      <td><%= testing.category %></td>
+      <td><%= testing.name %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
 
 <div class="row marketing">
   <div class="col-lg-6">

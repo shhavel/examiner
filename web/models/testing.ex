@@ -3,7 +3,7 @@ defmodule Examiner.Testing do
 
   schema "testings" do
     field :locale, :string
-    field :grade, :string
+    field :category, :string
     field :name, :string
     has_many :questions, Examiner.Question
 
@@ -15,7 +15,7 @@ defmodule Examiner.Testing do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:locale, :grade, :name])
-    |> validate_required([:locale, :grade, :name])
+    |> cast(params, [:locale, :category, :name])
+    |> validate_required([:locale, :category, :name])
   end
 end

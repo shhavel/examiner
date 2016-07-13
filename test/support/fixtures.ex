@@ -6,7 +6,7 @@ defmodule Examiner.Fixtures do
   alias Examiner.Result
 
   def fixture(:testing) do
-    Repo.one(Testing, limit: 1) || Repo.insert!(%Testing{grade: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"})
+    Repo.one(Testing, limit: 1) || Repo.insert!(%Testing{category: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"})
   end
 
   def fixture(:question) do

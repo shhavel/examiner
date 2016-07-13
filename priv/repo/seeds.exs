@@ -15,7 +15,7 @@ alias Examiner.Testing
 alias Examiner.Question
 alias Examiner.Answer
 
-testing = Repo.insert! %Testing{grade: "g8", locale: "uk", name: "ЗАГАЛЬНИЙ РОЗДІЛ"}
+testing = Repo.insert! %Testing{category: "g8", locale: "uk", name: "ЗАГАЛЬНИЙ РОЗДІЛ"}
 
 question = Repo.insert! %Question{testing_id: testing.id, text: "Які з відповідей є правильними?"}
 Repo.insert! %Answer{question_id: question.id, text: "Україна знаходиться у ІІІ годинному поясі", correct: false}
@@ -80,7 +80,7 @@ Repo.insert! %Answer{question_id: question.id, text: "Вибори Презид�
 Repo.insert! %Answer{question_id: question.id, text: "Парламент України складається з 450 депутатів", correct: true}
 
 
-testing = Repo.insert! %Testing{grade: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"}
+testing = Repo.insert! %Testing{category: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"}
 
 question = Repo.insert! %Question{testing_id: testing.id, text: "Найдавнішими архейськими і протерозойськими породами складено:"}
 Repo.insert! %Answer{question_id: question.id, text: "Причорноморську западину", correct: false}

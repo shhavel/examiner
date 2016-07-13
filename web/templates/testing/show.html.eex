@@ -8,8 +8,8 @@
   </li>
 
   <li>
-    <strong>Grade:</strong>
-    <%= @testing.grade %>
+    <strong>Category:</strong>
+    <%= @testing.category %>
   </li>
 
   <li>
