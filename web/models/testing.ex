@@ -5,7 +5,7 @@ defmodule Examiner.Testing do
     field :locale, :string
     field :category, :string
     field :name, :string
-    has_many :questions, Examiner.Question
+    has_many :questions, Examiner.Question, on_delete: :delete_all
 
     timestamps()
   end

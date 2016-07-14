@@ -11,7 +11,7 @@ defmodule Examiner.ResultControllerTest do
   end
 
   test "renders form for new resources", %{conn: conn} do
-    conn = get conn, result_path(conn, :new)
+    conn = get conn, result_path(conn, :new), testing_id: fixture(:testing).id
     assert html_response(conn, 200) =~ "New result"
   end
 

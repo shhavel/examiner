@@ -4,7 +4,7 @@ defmodule Examiner.Question do
   schema "questions" do
     belongs_to :testing, Examiner.Testing
     field :text, :string
-    has_many :answers, Examiner.Answer
+    has_many :answers, Examiner.Answer, on_delete: :delete_all
 
     timestamps()
   end

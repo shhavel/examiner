@@ -9,5 +9,7 @@ defmodule Examiner.Repo.Migrations.CreateAnswer do
 
       timestamps()
     end
+
+    create index(:answers, [:question_id])
   end
 end

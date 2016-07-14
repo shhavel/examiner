@@ -1,6 +1,7 @@
 defmodule Examiner.ResultController do
   use Examiner.Web, :controller
 
+  alias Examiner.Testing
   alias Examiner.Result
 
   def index(conn, _params) do
@@ -8,9 +9,10 @@ defmodule Examiner.ResultController do
     render(conn, "index.html", results: results)
   end
 
-  def new(conn, _params) do
-    changeset = Result.changeset(%Result{})
-    render(conn, "new.html", changeset: changeset)
+  def new(conn, %{"testing_id" => testing_id}) do
+    testing = Repo.get!(Testing, testing_id) |> Repo.preload([questions: :answers])
+    changeset = Result.changeset(%Result{}, %{testing_id: testing_id})
+    render(conn, "new.html", changeset: changeset, testing: testing)
   end
 
   def create(conn, %{"result" => result_params}) do

@@ -9,5 +9,7 @@ defmodule Examiner.Repo.Migrations.CreateResult do
 
       timestamps()
     end
+
+    create index(:results, [:testing_id])
   end
 end

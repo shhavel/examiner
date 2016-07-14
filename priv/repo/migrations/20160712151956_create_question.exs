@@ -8,5 +8,7 @@ defmodule Examiner.Repo.Migrations.CreateQuestion do
 
       timestamps()
     end
+
+    create index(:questions, [:testing_id])
   end
 end
