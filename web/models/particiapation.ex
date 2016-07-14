@@ -1,9 +1,9 @@
-defmodule Examiner.Result do
+defmodule Examiner.Particiapation do
   use Examiner.Web, :model
 
-  schema "results" do
+  schema "particiapations" do
     belongs_to :test, Examiner.Test
-    field :valuation, :float
+    field :evaluation, :float
     field :mark, :string
 
     timestamps()
@@ -14,7 +14,7 @@ defmodule Examiner.Result do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:test_id, :valuation, :mark])
+    |> cast(params, [:test_id, :evaluation, :mark])
     |> foreign_key_constraint(:test_id)
     |> validate_required([:test_id])
   end

@@ -1,0 +1,6 @@
+<h2>Edit particiapation</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: particiapation_path(@conn, :update, @particiapation) %>
+
+<%= link "Back", to: particiapation_path(@conn, :index) %>

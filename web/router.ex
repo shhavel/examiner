@@ -20,7 +20,7 @@ defmodule Examiner.Router do
     resources "/tests", TestController
     resources "/questions", QuestionController
     resources "/answers", AnswerController
-    resources "/results", ResultController
+    resources "/particiapations", ParticiapationController
   end
 
   # Other scopes may use custom stacks.
