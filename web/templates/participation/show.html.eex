@@ -1,0 +1,23 @@
+<h2>Show participation</h2>
+
+<ul>
+
+  <li>
+    <strong>Test:</strong>
+    <%= @participation.test_id %>
+  </li>
+
+  <li>
+    <strong>Valuation:</strong>
+    <%= @participation.evaluation %>
+  </li>
+
+  <li>
+    <strong>Mark:</strong>
+    <%= @participation.mark %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: participation_path(@conn, :edit, @participation) %>
+<%= link "Back", to: participation_path(@conn, :index) %>

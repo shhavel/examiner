@@ -1,0 +1,18 @@
+<h2>Show reply</h2>
+
+<ul>
+
+  <li>
+    <strong>Participation:</strong>
+    <%= @reply.participation_id %>
+  </li>
+
+  <li>
+    <strong>Question:</strong>
+    <%= @reply.question_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: reply_path(@conn, :edit, @reply) %>
+<%= link "Back", to: reply_path(@conn, :index) %>

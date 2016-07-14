@@ -3,7 +3,7 @@ defmodule Examiner.Repo.Migrations.CreateAnswer do
 
   def change do
     create table(:answers) do
-      add :question_id, references(:questions), null: false
+      add :question_id, references(:questions, on_delete: :delete_all), null: false
       add :text, :text, null: false
       add :correct, :boolean, default: false, null: false
 

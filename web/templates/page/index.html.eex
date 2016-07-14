@@ -17,7 +17,7 @@
       <td><%= test.category %></td>
       <td><%= test.name %></td>
       <td class="text-right">
-        <%= link "Start", to: particiapation_path(@conn, :create, particiapation: %{test_id: test.id}), method: :post, class: "btn btn-info btn-xs" %>
+        <%= link "Start", to: participation_path(@conn, :create, participation: %{test_id: test.id}), method: :post, class: "btn btn-info btn-xs" %>
       </td>
     </tr>
 <% end %>

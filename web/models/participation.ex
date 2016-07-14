@@ -1,10 +1,11 @@
-defmodule Examiner.Particiapation do
+defmodule Examiner.Participation do
   use Examiner.Web, :model
 
-  schema "particiapations" do
+  schema "participations" do
     belongs_to :test, Examiner.Test
     field :evaluation, :float
     field :mark, :string
+    has_many :replies, Examiner.Reply, on_delete: :delete_all
 
     timestamps()
   end

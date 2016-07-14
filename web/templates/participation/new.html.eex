@@ -1,0 +1,6 @@
+<h2>New participation</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: participation_path(@conn, :create) %>
+
+<%= link "Back", to: participation_path(@conn, :index) %>

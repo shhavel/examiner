@@ -1,6 +1,0 @@
-<h2>New particiapation</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: particiapation_path(@conn, :create) %>
-
-<%= link "Back", to: particiapation_path(@conn, :index) %>

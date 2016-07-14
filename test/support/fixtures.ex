@@ -3,7 +3,8 @@ defmodule Examiner.Fixtures do
   alias Examiner.Test
   alias Examiner.Question
   alias Examiner.Answer
-  alias Examiner.Particiapation
+  alias Examiner.Participation
+  alias Examiner.Reply
 
   def fixture(:test) do
     Repo.one(Test, limit: 1) || Repo.insert!(%Test{category: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"})
@@ -19,8 +20,12 @@ defmodule Examiner.Fixtures do
       text: "Причорноморську западину"})
   end
 
-  def fixture(:particiapation) do
-    Repo.one(Particiapation, limit: 1) || Repo.insert!(%Particiapation{test_id: fixture(:test).id})
+  def fixture(:participation) do
+    Repo.one(Participation, limit: 1) || Repo.insert!(%Participation{test_id: fixture(:test).id})
+  end
+
+  def fixture(:reply) do
+    Repo.one(Reply, limit: 1) || Repo.insert!(%Reply{participation_id: fixture(:participation).id, question_id: fixture(:question).id})
   end
 
   def valid_attrs(:question) do
@@ -31,7 +36,11 @@ defmodule Examiner.Fixtures do
     %{question_id: fixture(:question).id, text: "Причорноморську западину"}
   end
 
-  def valid_attrs(:particiapation) do
+  def valid_attrs(:participation) do
     %{test_id: fixture(:test).id}
+  end
+
+  def valid_attrs(:reply) do
+    %{participation_id: fixture(:participation).id, question_id: fixture(:question).id}
   end
 end
