@@ -3,7 +3,7 @@ defmodule Examiner.QuestionTest do
 
   alias Examiner.Question
 
-  @valid_attrs %{testing_id: 42, text: "some content"}
+  @valid_attrs %{test_id: 42, text: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

@@ -1,6 +1,0 @@
-<h2>New testing</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: testing_path(@conn, :create) %>
-
-<%= link "Back", to: testing_path(@conn, :index) %>

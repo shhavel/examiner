@@ -3,7 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Testing</th>
+      <th>Test</th>
       <th>Text</th>
 
       <th></th>
@@ -12,7 +12,7 @@
   <tbody>
 <%= for question <- @questions do %>
     <tr>
-      <td><%= question.testing_id %></td>
+      <td><%= question.test_id %></td>
       <td><%= question.text %></td>
 
       <td class="text-right">

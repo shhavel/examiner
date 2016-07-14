@@ -11,13 +11,13 @@
     </tr>
   </thead>
   <tbody>
-<%= for testing <- @testings do %>
+<%= for test <- @tests do %>
     <tr>
-      <td><%= testing.locale %></td>
-      <td><%= testing.category %></td>
-      <td><%= testing.name %></td>
+      <td><%= test.locale %></td>
+      <td><%= test.category %></td>
+      <td><%= test.name %></td>
       <td class="text-right">
-        <%= link "Start", to: result_path(@conn, :create, result: %{testing_id: testing.id}), method: :post, class: "btn btn-info btn-xs" %>
+        <%= link "Start", to: result_path(@conn, :create, result: %{test_id: test.id}), method: :post, class: "btn btn-info btn-xs" %>
       </td>
     </tr>
 <% end %>

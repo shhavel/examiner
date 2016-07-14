@@ -3,7 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Testing</th>
+      <th>Test</th>
       <th>Valuation</th>
       <th>Mark</th>
 
@@ -13,7 +13,7 @@
   <tbody>
 <%= for result <- @results do %>
     <tr>
-      <td><%= result.testing_id %></td>
+      <td><%= result.test_id %></td>
       <td><%= result.valuation %></td>
       <td><%= result.mark %></td>
 

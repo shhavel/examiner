@@ -3,7 +3,7 @@ defmodule Examiner.ResultTest do
 
   alias Examiner.Result
 
-  @valid_attrs %{mark: "some content", testing_id: 42, valuation: "120.5"}
+  @valid_attrs %{mark: "some content", test_id: 42, valuation: "120.5"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

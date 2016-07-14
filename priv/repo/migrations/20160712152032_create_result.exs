@@ -3,13 +3,13 @@ defmodule Examiner.Repo.Migrations.CreateResult do
 
   def change do
     create table(:results) do
-      add :testing_id, references(:testings), null: false
+      add :test_id, references(:tests), null: false
       add :valuation, :float
       add :mark, :string
 
       timestamps()
     end
 
-    create index(:results, [:testing_id])
+    create index(:results, [:test_id])
   end
 end

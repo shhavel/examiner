@@ -3,7 +3,7 @@ defmodule Examiner.ResultControllerTest do
   import Examiner.Fixtures
 
   alias Examiner.Result
-  @invalid_attrs %{testing_id: nil}
+  @invalid_attrs %{test_id: nil}
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, result_path(conn, :index)
@@ -11,7 +11,7 @@ defmodule Examiner.ResultControllerTest do
   end
 
   test "renders form for new resources", %{conn: conn} do
-    conn = get conn, result_path(conn, :new), testing_id: fixture(:testing).id
+    conn = get conn, result_path(conn, :new), test_id: fixture(:test).id
     assert html_response(conn, 200) =~ "New result"
   end
 

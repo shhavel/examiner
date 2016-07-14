@@ -3,12 +3,12 @@ defmodule Examiner.Repo.Migrations.CreateQuestion do
 
   def change do
     create table(:questions) do
-      add :testing_id, references(:testings), null: false
+      add :test_id, references(:tests), null: false
       add :text, :text, null: false
 
       timestamps()
     end
 
-    create index(:questions, [:testing_id])
+    create index(:questions, [:test_id])
   end
 end

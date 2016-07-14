@@ -2,7 +2,7 @@ defmodule Examiner.Question do
   use Examiner.Web, :model
 
   schema "questions" do
-    belongs_to :testing, Examiner.Testing
+    belongs_to :test, Examiner.Test
     field :text, :string
     has_many :answers, Examiner.Answer, on_delete: :delete_all
 
@@ -14,8 +14,8 @@ defmodule Examiner.Question do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:testing_id, :text])
-    |> foreign_key_constraint(:testing_id)
-    |> validate_required([:testing_id, :text])
+    |> cast(params, [:test_id, :text])
+    |> foreign_key_constraint(:test_id)
+    |> validate_required([:test_id, :text])
   end
 end

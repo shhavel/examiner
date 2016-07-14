@@ -3,8 +3,8 @@
 <ul>
 
   <li>
-    <strong>Testing:</strong>
-    <%= @question.testing_id %>
+    <strong>Test:</strong>
+    <%= @question.test_id %>
   </li>
 
   <li>

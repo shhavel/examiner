@@ -1,7 +1,7 @@
-defmodule Examiner.Testing do
+defmodule Examiner.Test do
   use Examiner.Web, :model
 
-  schema "testings" do
+  schema "tests" do
     field :locale, :string
     field :category, :string
     field :name, :string

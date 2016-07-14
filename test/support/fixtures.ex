@@ -1,16 +1,16 @@
 defmodule Examiner.Fixtures do
   alias Examiner.Repo
-  alias Examiner.Testing
+  alias Examiner.Test
   alias Examiner.Question
   alias Examiner.Answer
   alias Examiner.Result
 
-  def fixture(:testing) do
-    Repo.one(Testing, limit: 1) || Repo.insert!(%Testing{category: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"})
+  def fixture(:test) do
+    Repo.one(Test, limit: 1) || Repo.insert!(%Test{category: "g8", locale: "uk", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"})
   end
 
   def fixture(:question) do
-    Repo.one(Question, limit: 1) || Repo.insert!(%Question{testing_id: fixture(:testing).id,
+    Repo.one(Question, limit: 1) || Repo.insert!(%Question{test_id: fixture(:test).id,
       text: "Найдавнішими архейськими і протерозойськими породами складено:"})
   end
 
@@ -20,11 +20,11 @@ defmodule Examiner.Fixtures do
   end
 
   def fixture(:result) do
-    Repo.one(Result, limit: 1) || Repo.insert!(%Result{testing_id: fixture(:testing).id})
+    Repo.one(Result, limit: 1) || Repo.insert!(%Result{test_id: fixture(:test).id})
   end
 
   def valid_attrs(:question) do
-    %{testing_id: fixture(:testing).id, text: "Найдавнішими архейськими і протерозойськими породами складено:"}
+    %{test_id: fixture(:test).id, text: "Найдавнішими архейськими і протерозойськими породами складено:"}
   end
 
   def valid_attrs(:answer) do
@@ -32,6 +32,6 @@ defmodule Examiner.Fixtures do
   end
 
   def valid_attrs(:result) do
-    %{testing_id: fixture(:testing).id}
+    %{test_id: fixture(:test).id}
   end
 end

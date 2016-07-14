@@ -1,8 +1,8 @@
-defmodule Examiner.Repo.Migrations.CreateTesting do
+defmodule Examiner.Repo.Migrations.CreateTest do
   use Ecto.Migration
 
   def change do
-    create table(:testings) do
+    create table(:tests) do
       add :locale, :string, default: "uk", null: false
       add :category, :string, null: false
       # add :difficulty_level, :string
@@ -11,8 +11,8 @@ defmodule Examiner.Repo.Migrations.CreateTesting do
       timestamps()
     end
 
-    create index(:testings, [:locale, :category])
-    create index(:testings, [:locale])
-    create index(:testings, [:category])
+    create index(:tests, [:locale, :category])
+    create index(:tests, [:locale])
+    create index(:tests, [:category])
   end
 end
