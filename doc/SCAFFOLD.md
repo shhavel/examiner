@@ -4,5 +4,5 @@ $ mix phoenix.gen.html Question questions test_id:references:tests text:text
 $ mix phoenix.gen.html Answer answers question_id:references:questions text:text correct:boolean
 $ mix phoenix.gen.html Participation results test_id:references:tests valuation:float mark
 $ mix phoenix.gen.html Reply replies participation_id:references:participations question_id:references:questions
-$ mix phoenix.gen.html Tick ticks question_id:references:questions answer_id:references:answers
+$ mix phoenix.gen.html Tick ticks reply_id:references:replies answer_id:references:answers
 ```

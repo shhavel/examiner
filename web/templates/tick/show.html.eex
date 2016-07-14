@@ -1,0 +1,18 @@
+<h2>Show tick</h2>
+
+<ul>
+
+  <li>
+    <strong>Reply:</strong>
+    <%= @tick.reply_id %>
+  </li>
+
+  <li>
+    <strong>Answer:</strong>
+    <%= @tick.answer_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: tick_path(@conn, :edit, @tick) %>
+<%= link "Back", to: tick_path(@conn, :index) %>

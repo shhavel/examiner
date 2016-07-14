@@ -1,0 +1,28 @@
+<h2>Listing ticks</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Reply</th>
+      <th>Answer</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for tick <- @ticks do %>
+    <tr>
+      <td><%= tick.reply_id %></td>
+      <td><%= tick.answer_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: tick_path(@conn, :show, tick), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: tick_path(@conn, :edit, tick), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: tick_path(@conn, :delete, tick), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New tick", to: tick_path(@conn, :new) %>
