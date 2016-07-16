@@ -1,6 +1,0 @@
-<h2>Edit reply</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: reply_path(@conn, :update, @reply) %>
-
-<%= link "Back", to: reply_path(@conn, :index) %>

@@ -1,6 +1,0 @@
-<h2>Edit tick</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: tick_path(@conn, :update, @tick) %>
-
-<%= link "Back", to: tick_path(@conn, :index) %>
