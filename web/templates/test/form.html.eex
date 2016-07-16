@@ -30,55 +30,72 @@
   </div>
 
 <%= inputs_for f, :questions, fn q -> %>
-  <div class="form-group <%= if q.errors[:text], do: "has-error" %>">
-    <hr style="border-color: #aaa;"/>
-    <%= label q, :text, "Question ##{q.index + 1}", class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= text_input q, :text, class: "form-control" %>
-      <%= error_tag q, :text %>
-    </div>
-  </div>
-
-  <%= if q.model.id do %>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label><%= checkbox q, :delete %> Delete?</label>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-  <%= inputs_for q, :answers, fn a -> %>
-    <div class="form-group <%= if a.errors[:text], do: "has-error" %>">
-      <%= label a, :text, "Answer ##{a.index + 1}", class: "control-label col-sm-2" %>
+  <div id="question_<%= q.index %>_div">
+    <div class="form-group <%= if q.errors[:text], do: "has-error" %>">
+      <hr style="border-color: #aaa;"/>
+      <%= label q, :text, "Question ##{q.index + 1}", class: "control-label col-sm-2" %>
       <div class="col-sm-10">
-        <%= text_input a, :text, class: "form-control" %>
-        <%= error_tag a, :text %>
+        <%= text_input q, :text, class: "form-control" %>
+        <%= error_tag q, :text %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox">
-          <label><%= checkbox a, :correct %> Correct</label>
+          <%= if q.model.id do %>
+            <label><%= checkbox q, :delete %> Delete?</label>
+          <% else %>
+            <a href="#" data-remove="#question_<%= q.index %>_div">Delete</a>
+          <% end %>
         </div>
       </div>
     </div>
 
-    <%= if a.model.id do %>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <div class="checkbox">
-            <label><%= checkbox a, :delete %> Delete?</label>
+    <%= inputs_for q, :answers, fn a -> %>
+      <div id="question_<%= q.index %>_answer_<%= a.index %>_div">
+        <div class="form-group <%= if a.errors[:text], do: "has-error" %>">
+          <%= label a, :text, "Answer ##{a.index + 1}", class: "control-label col-sm-2" %>
+          <div class="col-sm-10">
+            <%= text_input a, :text, class: "form-control" %>
+            <%= error_tag a, :text %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label><%= checkbox a, :correct %> Correct</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= if a.model.id do %>
+              <div class="checkbox">
+                <label><%= checkbox a, :delete %> Delete?</label>
+              </div>
+            <% else %>
+              <a href="#" data-remove="#question_<%= q.index %>_answer_<%= a.index %>_div">Delete</a>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
-  <% end %>
+  </div>
 <% end %>
 
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(document).on("click", "a[data-remove]", function(event) {
+      $($(event.target).data("remove")).remove();
+      return false;
+    });
+  });
+</script>
