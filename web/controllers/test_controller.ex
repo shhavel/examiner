@@ -2,6 +2,8 @@ defmodule Examiner.TestController do
   use Examiner.Web, :controller
 
   alias Examiner.Test
+  alias Examiner.Question
+  alias Examiner.Answer
 
   def index(conn, _params) do
     tests = Repo.all(Test)
@@ -9,7 +11,10 @@ defmodule Examiner.TestController do
   end
 
   def new(conn, _params) do
-    changeset = Test.changeset(%Test{})
+    changeset = Test.changeset(%Test{questions: [
+      %Question{answers: [%Answer{}, %Answer{}]},
+      %Question{answers: [%Answer{}, %Answer{}]}
+    ]})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -32,13 +37,13 @@ defmodule Examiner.TestController do
   end
 
   def edit(conn, %{"id" => id}) do
-    test = Repo.get!(Test, id)
+    test = Repo.get!(Test, id) |> Repo.preload([questions: :answers])
     changeset = Test.changeset(test)
     render(conn, "edit.html", test: test, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "test" => test_params}) do
-    test = Repo.get!(Test, id)
+    test = Repo.get!(Test, id) |> Repo.preload([questions: :answers])
     changeset = Test.changeset(test, test_params)
 
     case Repo.update(changeset) do

@@ -16,6 +16,7 @@ defmodule Examiner.Test do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:locale, :category, :name])
+    |> cast_assoc(:questions)
     |> validate_required([:locale, :category, :name])
   end
 end

@@ -32,13 +32,13 @@ defmodule Examiner.QuestionController do
   end
 
   def edit(conn, %{"id" => id}) do
-    question = Repo.get!(Question, id)
+    question = Repo.get!(Question, id) |> Repo.preload([:answers])
     changeset = Question.changeset(question)
     render(conn, "edit.html", question: question, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "question" => question_params}) do
-    question = Repo.get!(Question, id)
+    question = Repo.get!(Question, id) |> Repo.preload([:answers])
     changeset = Question.changeset(question, question_params)
 
     case Repo.update(changeset) do

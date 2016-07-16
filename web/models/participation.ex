@@ -3,9 +3,9 @@ defmodule Examiner.Participation do
 
   schema "participations" do
     belongs_to :test, Examiner.Test
+    has_many :replies, Examiner.Reply, on_delete: :delete_all
     field :evaluation, :float
     field :mark, :string
-    has_many :replies, Examiner.Reply, on_delete: :delete_all
 
     timestamps()
   end
@@ -16,6 +16,7 @@ defmodule Examiner.Participation do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:test_id, :evaluation, :mark])
+    |> cast_assoc(:replies)
     |> foreign_key_constraint(:test_id)
     |> validate_required([:test_id])
   end

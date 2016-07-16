@@ -5,6 +5,7 @@ defmodule Examiner.Answer do
     belongs_to :question, Examiner.Question
     field :text, :string
     field :correct, :boolean, default: false
+    field :delete, :boolean, virtual: true
 
     timestamps()
   end
@@ -14,8 +15,18 @@ defmodule Examiner.Answer do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:question_id, :text, :correct])
+    |> cast(params, [:text, :correct, :delete])
     |> foreign_key_constraint(:question_id)
-    |> validate_required([:question_id, :text, :correct])
+    |> validate_required([:text, :correct])
+    |> maybe_mark_for_deletion()
+  end
+
+  defp maybe_mark_for_deletion(changeset) do
+    # If delete was set and it is true, let's change the action
+    if get_change(changeset, :delete) do
+      %{changeset | action: :delete}
+    else
+      changeset
+    end
   end
 end

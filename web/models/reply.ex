@@ -4,6 +4,7 @@ defmodule Examiner.Reply do
   schema "replies" do
     belongs_to :participation, Examiner.Participation
     belongs_to :question, Examiner.Question
+    has_many :ticks, Examiner.Tick
 
     timestamps()
   end
@@ -14,6 +15,7 @@ defmodule Examiner.Reply do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:participation_id, :question_id])
+    |> cast_assoc(:ticks)
     |> foreign_key_constraint(:participation_id)
     |> foreign_key_constraint(:question_id)
     |> validate_required([])

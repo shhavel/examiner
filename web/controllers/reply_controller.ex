@@ -32,13 +32,13 @@ defmodule Examiner.ReplyController do
   end
 
   def edit(conn, %{"id" => id}) do
-    reply = Repo.get!(Reply, id)
+    reply = Repo.get!(Reply, id) |> Repo.preload([:ticks])
     changeset = Reply.changeset(reply)
     render(conn, "edit.html", reply: reply, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "reply" => reply_params}) do
-    reply = Repo.get!(Reply, id)
+    reply = Repo.get!(Reply, id) |> Repo.preload([:ticks])
     changeset = Reply.changeset(reply, reply_params)
 
     case Repo.update(changeset) do
