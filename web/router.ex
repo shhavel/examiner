@@ -19,7 +19,6 @@ defmodule Examiner.Router do
     get "/", PageController, :index
     resources "/tests", TestController
     resources "/questions", QuestionController
-    resources "/answers", AnswerController
     resources "/participations", ParticipationController
     resources "/replies", ReplyController
   end
