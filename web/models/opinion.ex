@@ -2,11 +2,9 @@ defmodule Examiner.Opinion do
   use Examiner.Web, :model
 
   schema "opinions" do
-    field :answer_text, :string
-    field :answer_correct, :boolean, default: false
-    field :agree, :boolean, default: false
-    belongs_to :response, Examiner.Response
+    belongs_to :reply, Examiner.Reply
     belongs_to :answer, Examiner.Answer
+    field :agree, :boolean, default: false
 
     timestamps()
   end
@@ -16,7 +14,7 @@ defmodule Examiner.Opinion do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:answer_text, :answer_correct, :agree])
-    |> validate_required([:answer_text, :answer_correct, :agree])
+    |> cast(params, [:answer_id, :agree])
+    |> validate_required([:answer_id, :agree])
   end
 end

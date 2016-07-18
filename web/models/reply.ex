@@ -1,8 +1,7 @@
-defmodule Examiner.Response do
+defmodule Examiner.Reply do
   use Examiner.Web, :model
 
-  schema "responses" do
-    field :question_text, :string
+  schema "replies" do
     belongs_to :participation, Examiner.Participation
     belongs_to :question, Examiner.Question
     has_many :opinions, Examiner.Opinion, on_delete: :delete_all
@@ -15,7 +14,8 @@ defmodule Examiner.Response do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:question_text])
-    |> validate_required([:question_text])
+    |> cast(params, [:question_id])
+    |> cast_assoc(:opinions)
+    |> validate_required([:question_id])
   end
 end

@@ -15,7 +15,7 @@
     <tr>
       <td><%= test.locale %></td>
       <td><%= test.category %></td>
-      <td><%= test.name %></td>
+      <td><%= link test.name, to: participation_path(@conn, :new, test_id: test.id) %></td>
       <td class="text-right">
         <%= link "Start", to: participation_path(@conn, :create, participation: %{test_id: test.id}), method: :post, class: "btn btn-info btn-xs" %>
       </td>

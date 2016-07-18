@@ -12,7 +12,7 @@ defmodule Examiner.ParticipationControllerTest do
 
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, participation_path(conn, :new), test_id: fixture(:test).id
-    assert html_response(conn, 200) =~ "New participation"
+    assert html_response(conn, 200) =~ fixture(:test).name
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
@@ -23,7 +23,7 @@ defmodule Examiner.ParticipationControllerTest do
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, participation_path(conn, :create), participation: @invalid_attrs
-    assert html_response(conn, 200) =~ "New participation"
+    assert html_response(conn, 404) =~ "Page not found"
   end
 
   test "shows chosen resource", %{conn: conn} do

@@ -1,4 +1,4 @@
-<h2>New participation</h2>
+<h2><%= @test.name %></h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: participation_path(@conn, :create) %>

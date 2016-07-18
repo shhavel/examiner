@@ -4,6 +4,7 @@ defmodule Examiner.Test do
   schema "tests" do
     field :locale, :string
     field :category, :string
+    field :guide, :string
     field :name, :string
     has_many :questions, Examiner.Question, on_delete: :delete_all
 

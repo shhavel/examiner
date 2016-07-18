@@ -11,20 +11,28 @@ defmodule Examiner.ParticipationController do
 
   def new(conn, %{"test_id" => test_id}) do
     test = Repo.get!(Test, test_id) |> Repo.preload([questions: :answers])
-    changeset = Participation.changeset(%Participation{}, %{test_id: test_id})
+    changeset = Participation.changeset_for_test(test)
     render(conn, "new.html", changeset: changeset, test: test)
   end
 
   def create(conn, %{"participation" => participation_params}) do
-    changeset = Participation.changeset(%Participation{}, participation_params)
+    if participation_params["test_id"] do
+      test = Repo.get!(Test, participation_params["test_id"]) |> Repo.preload([questions: :answers])
 
-    case Repo.insert(changeset) do
-      {:ok, _participation} ->
-        conn
-        |> put_flash(:info, "Participation created successfully.")
-        |> redirect(to: participation_path(conn, :index))
-      {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+      changeset = Participation.changeset(%Participation{}, participation_params)
+
+      case Repo.insert(changeset) do
+        {:ok, _participation} ->
+          conn
+          |> put_flash(:info, "Participation created successfully.")
+          |> redirect(to: participation_path(conn, :index))
+        {:error, changeset} ->
+          render(conn, "new.html", changeset: changeset, test: test)
+      end
+    else
+      conn
+        |> put_status(:not_found)
+        |> render(Examiner.ErrorView, "404.html")
     end
   end
 
@@ -34,13 +42,13 @@ defmodule Examiner.ParticipationController do
   end
 
   def edit(conn, %{"id" => id}) do
-    participation = Repo.get!(Participation, id) |> Repo.preload([responses: :opinions])
+    participation = Repo.get!(Participation, id) |> Repo.preload([replies: :opinions])
     changeset = Participation.changeset(participation)
     render(conn, "edit.html", participation: participation, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "participation" => participation_params}) do
-    participation = Repo.get!(Participation, id) |> Repo.preload([responses: :opinions])
+    participation = Repo.get!(Participation, id) |> Repo.preload([replies: :opinions])
     changeset = Participation.changeset(participation, participation_params)
 
     case Repo.update(changeset) do

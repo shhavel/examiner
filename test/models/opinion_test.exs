@@ -3,7 +3,7 @@ defmodule Examiner.OpinionTest do
 
   alias Examiner.Opinion
 
-  @valid_attrs %{agree: true, answer_correct: true, answer_text: "some content"}
+  @valid_attrs %{answer_id: 43, agree: true}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
