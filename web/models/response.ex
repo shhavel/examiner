@@ -1,10 +1,11 @@
-defmodule Examiner.Reply do
+defmodule Examiner.Response do
   use Examiner.Web, :model
 
-  schema "replies" do
+  schema "responses" do
+    field :question_text, :string
     belongs_to :participation, Examiner.Participation
     belongs_to :question, Examiner.Question
-    has_many :ticks, Examiner.Tick
+    has_many :opinions, Examiner.Opinion, on_delete: :delete_all
 
     timestamps()
   end
@@ -14,10 +15,7 @@ defmodule Examiner.Reply do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:participation_id, :question_id])
-    |> cast_assoc(:ticks)
-    |> foreign_key_constraint(:participation_id)
-    |> foreign_key_constraint(:question_id)
-    |> validate_required([])
+    |> cast(params, [:question_text])
+    |> validate_required([:question_text])
   end
 end
