@@ -4,20 +4,38 @@
 
   <li>
     <strong>Test:</strong>
-    <%= @participation.test_id %>
+    <%= @participation.test.name %>
   </li>
 
-  <li>
-    <strong>Valuation:</strong>
-    <%= @participation.evaluation %>
-  </li>
+  <%= if Examiner.Participation.finished?(@participation) do %>
+    <li>
+      <strong>State:</strong>
+      Finished
+    </li>
 
-  <li>
-    <strong>Mark:</strong>
-    <%= @participation.mark %>
-  </li>
+    <li>
+      <strong>Evaluation:</strong>
+      <%= Examiner.Participation.correct_replies_count(@participation) %> / <%= Examiner.Participation.questions_count(@participation) %>
+    </li>
 
+    <li>
+      <strong>Score:</strong>
+      <%= Examiner.Participation.score(@participation) %>
+    </li>
+  <% else %>
+    <li>
+      <strong>State:</strong>
+      Started
+    </li>
+
+    <li>
+      <strong>Progress:</strong>
+      <%= Examiner.Participation.replies_count(@participation) %> / <%= Examiner.Participation.questions_count(@participation) %>
+    </li>
+  <% end %>
 </ul>
 
-<%= link "Edit", to: participation_path(@conn, :edit, @participation) %>
+<%= unless Examiner.Participation.finished?(@participation) do %>
+  <%= link "Continue", to: participation_path(@conn, :edit, @participation) %>
+<% end %>
 <%= link "Back", to: participation_path(@conn, :index) %>

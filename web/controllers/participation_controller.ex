@@ -37,12 +37,12 @@ defmodule Examiner.ParticipationController do
   end
 
   def show(conn, %{"id" => id}) do
-    participation = Repo.get!(Participation, id)
+    participation = Repo.get!(Participation, id) |> Repo.preload([:test, [replies: [[opinions: :answer], [question: :answers]]]])
     render(conn, "show.html", participation: participation)
   end
 
   def edit(conn, %{"id" => id}) do
-    participation = Repo.get!(Participation, id) |> Repo.preload([replies: :opinions])
+    participation = Repo.get!(Participation, id) |> Repo.preload([replies: [:question, [opinions: :answer]]])
     changeset = Participation.changeset(participation)
     render(conn, "edit.html", participation: participation, changeset: changeset)
   end

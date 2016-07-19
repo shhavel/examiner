@@ -30,4 +30,8 @@ defmodule Examiner.Question do
       changeset
     end
   end
+
+  def has_only_one_correct_answer?(question) do
+    Enum.count(question.answers, &(&1.correct)) == 1
+  end
 end
