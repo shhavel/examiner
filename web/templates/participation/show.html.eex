@@ -38,4 +38,4 @@
 <%= unless Examiner.Participation.finished?(@participation) do %>
   <%= link "Continue", to: participation_path(@conn, :edit, @participation) %>
 <% end %>
-<%= link "Back", to: participation_path(@conn, :index) %>
+<a href="/">Back</a>

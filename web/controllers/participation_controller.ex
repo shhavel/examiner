@@ -22,10 +22,10 @@ defmodule Examiner.ParticipationController do
       changeset = Participation.changeset(%Participation{}, participation_params)
 
       case Repo.insert(changeset) do
-        {:ok, _participation} ->
+        {:ok, participation} ->
           conn
           |> put_flash(:info, "Participation created successfully.")
-          |> redirect(to: participation_path(conn, :index))
+          |> redirect(to: participation_path(conn, :show, participation))
         {:error, changeset} ->
           render(conn, "new.html", changeset: changeset, test: test)
       end

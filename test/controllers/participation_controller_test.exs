@@ -17,8 +17,9 @@ defmodule Examiner.ParticipationControllerTest do
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
     conn = post conn, participation_path(conn, :create), participation: valid_attrs(:participation)
-    assert redirected_to(conn) == participation_path(conn, :index)
-    assert Repo.get_by(Participation, valid_attrs(:participation))
+    participation = Repo.get_by(Participation, valid_attrs(:participation))
+    assert participation
+    assert redirected_to(conn) == participation_path(conn, :show, participation)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
