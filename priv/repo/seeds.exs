@@ -15,141 +15,141 @@ alias Examiner.Test
 alias Examiner.Question
 alias Examiner.Answer
 
-test = Repo.insert! %Test{locale: "uk", category: "Geography", guide: "uk-g8", name: "ЗАГАЛЬНИЙ РОЗДІЛ"}
+test = Repo.insert! %Test{locale: "uk", category: "Geography", guide: "en-g8", name: "GENERAL SECTION"}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Які з відповідей є правильними?"}
-Repo.insert! %Answer{question_id: question.id, text: "Україна знаходиться у ІІІ годинному поясі", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Відлік часу ведеться від 180-го меридіана", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Полудень в Україні настає на дві години раніше, ніж у нульовому (західноєвропейському) годинному поясі", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which answer is correct?"}
+Repo.insert! %Answer{question_id: question.id, text: "Ukraine is in a third time zone", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "The countdown is on 180 th meridian", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Midday in Ukraine comes two hours earlier than zero (Western European) time zone", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Яка з відповідей є неправильною?"}
-Repo.insert! %Answer{question_id: question.id, text: "За видом геометричної поверхні картографічні проекції поділяються на циліндричні, азимутальні, конічні", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "До тематичних карт належать фізико-географічні й економічні карти", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Використовуючи рівновеликі проекції, можна створювати карти без спотворень", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which answer is wrong?"}
+Repo.insert! %Answer{question_id: question.id, text: "By type of geometric surface map projections are divided into cylindrical, azimuthal, conical", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: " By thematic maps are geographical and economic maps", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Using equal projection, you can create maps without distortion", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Уперше назва \"Україна\" згадується:"}
-Repo.insert! %Answer{question_id: question.id, text: "в Київському Літописі (1187 р.)", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "в книзі Г. Боплана \"Опис України\" (1650 р.)", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "в описах візантійських та арабських мандрівників X ст.", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "For the first time the name \"Ukraine\" is mentioned:"}
+Repo.insert! %Answer{question_id: question.id, text: "the Kyiv Chronicle (1187)", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "G. Boplana in the book \"Description of Ukraine\" (1650)", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "in the descriptions of Byzantine and Arab travelers X century.", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Автором \"Опису України\" є:"}
-Repo.insert! %Answer{question_id: question.id, text: "Гіппократ", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Г. Боплан", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Геродот", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "The author of the \"Description of Ukraine\" are:"}
+Repo.insert! %Answer{question_id: question.id, text: "Hippocrates", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "G. Boplan", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Herodotus", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Загальновизнаний географічний центр України знаходиться:"}
-Repo.insert! %Answer{question_id: question.id, text: "у м. Світловодськ Кіровоградської області", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "поблизу с. Мар'янівка Черкаської області", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "біля м.Чигирин Черкаської області", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "Avowed geographical center of Ukraine is:"}
+Repo.insert! %Answer{question_id: question.id, text: "in the city. Svitlovodsk Kirovograd region", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "near the village. Marianivka Cherkasy region", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "m.Chyhyryn near Cherkassy region", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Крайньою південною точкою України є:"}
-Repo.insert! %Answer{question_id: question.id, text: "м. Сарич", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "м. Тарханкут", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "м. Меганом", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "The southernmost point of Ukraine:"}
+Repo.insert! %Answer{question_id: question.id, text: "Sarich", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Tarkhankut", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Meganom", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Які з тверджень є правильними?"}
-Repo.insert! %Answer{question_id: question.id, text: "Площа території України становить 603,7 тис. кв. км", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Україна межує з сімома країнами", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Територія України омивається водами трьох морів", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "Which of the statements is correct?"}
+Repo.insert! %Answer{question_id: question.id, text: "The area of ​​Ukraine is 603,7 thousand sq. km", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Ukraine borders with seven countries", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "The territory of Ukraine is washed by three seas", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "З якими із перелічених країн не межує Україна?"}
-Repo.insert! %Answer{question_id: question.id, text: "Зі Словаччиною", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "З Болгарією", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Зі Словенією", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which of these countries not bordering Ukraine?"}
+Repo.insert! %Answer{question_id: question.id, text: "Slovakia", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Bulgaria", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Slovenia", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "У якому році завершилось формування території України?"}
-Repo.insert! %Answer{question_id: question.id, text: "У 1922", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "У 1954", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "У 1991", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "What year ended with the formation of Ukraine?"}
+Repo.insert! %Answer{question_id: question.id, text: "In 1922", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "In 1954", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "In 1991", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: " Які території були включені до складу України в повоєнні часи?"}
-Repo.insert! %Answer{question_id: question.id, text: "Північна Буковина", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Південна Бессарабія", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Закарпаття", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Кримська область", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which territories were included in the Ukraine in World War II?"}
+Repo.insert! %Answer{question_id: question.id, text: "Northern Bukovina", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "South Bessarabia", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Transcarpathia", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Crimean region", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Членом яких із перелічених організацій  є Україна?"}
-Repo.insert! %Answer{question_id: question.id, text: "ОПЕК", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Співдружність незалежних держав", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Міжнародний валютний фонд", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Світова організація торгівлі", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which member of these organizations is Ukraine?"}
+Repo.insert! %Answer{question_id: question.id, text: "OPEC", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Commonwealth of Independent States", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "The International Monetary Fund", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "The World Trade Organization", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Яка з відповідей є правильною?"}
-Repo.insert! %Answer{question_id: question.id, text: "Вибори до Верховної Ради України проводяться раз у п'ять років", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Вибори Президента України відбуваються раз у чотири роки", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Парламент України складається з 450 депутатів", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which answer is correct?"}
+Repo.insert! %Answer{question_id: question.id, text: "Elections to the Verkhovna Rada of Ukraine shall be held once every five years", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Presidential elections in Ukraine held every four years", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Ukraine's Parliament consists of 450 members", correct: true}
 
 
-test = Repo.insert! %Test{locale: "uk", category: "Geography", guide: "g8", name: "ПРИРОДНІ УМОВИ ТА ПРИРОДНІ РЕСУРСИ"}
+test = Repo.insert! %Test{locale: "uk", category: "Geography", guide: "en-g8", name: "NATURAL CONDITIONS AND NATURAL RESOURCES"}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Найдавнішими архейськими і протерозойськими породами складено:"}
-Repo.insert! %Answer{question_id: question.id, text: "Причорноморську западину", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Воронезький кристалічний щит", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Український щит", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Волино-Подільську Плиту", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "The oldest Archean and Proterozoic rocks composed of:"}
+Repo.insert! %Answer{question_id: question.id, text: "Black Sea basin", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Voronezh crystalline shield", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Ukrainian Shield", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Volyn-Podolsk Cooker", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "В який із геологічних періодів останні моря залишили територію України?"}
-Repo.insert! %Answer{question_id: question.id, text: "У неогені", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "В юрі", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "У палеогені", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "Which of past geological periods Sea left the Ukraine?"}
+Repo.insert! %Answer{question_id: question.id, text: "In the Neogene", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "In the Jurassic", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "In the Paleogene", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Найвищою вершиною Криму є"}
-Repo.insert! %Answer{question_id: question.id, text: "г. Роман-Кош", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "г. Демерджі", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "г. Ай-Петрі", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "The highest peak in the Crimea is"}
+Repo.insert! %Answer{question_id: question.id, text: "Roman-Kosh", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Demerdzhi", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Ai-Petri", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Яка висота Говерли?"}
-Repo.insert! %Answer{question_id: question.id, text: "1545 м", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "2061 м", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "1527 м", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "What height Goverly?"}
+Repo.insert! %Answer{question_id: question.id, text: "1545 m", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "2061 m", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "1527 m", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Яка з відповідей є правильною?"}
-Repo.insert! %Answer{question_id: question.id, text: "Вся територія України розташована в помірному кліматичному поясі", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Континентальність клімату України зростає з півночі на південь", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Найбільші річні суми опадів в Україні припадають на Карпати", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which answer is correct?"}
+Repo.insert! %Answer{question_id: question.id, text: "The whole territory of Ukraine is located in the temperate climate zone", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "The continental climate of Ukraine is increasing from north to south", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "The greatest annual precipitation in the Carpathian Mountains of Ukraine is", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Скільки гірських вершин України мають висоту понад 2 000 метрів?"}
+question = Repo.insert! %Question{test_id: test.id, text: "How many peaks of Ukraine shall have a height of 2000 meters?"}
 Repo.insert! %Answer{question_id: question.id, text: "5", correct: false}
 Repo.insert! %Answer{question_id: question.id, text: "6", correct: true}
 Repo.insert! %Answer{question_id: question.id, text: "4", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Яке з тверджень є неправильним?"}
-Repo.insert! %Answer{question_id: question.id, text: "Основна маса опадів в Україні випадає у теплий період року", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Україна добре забезпечена водними ресурсами", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Південний берег Криму знаходиться в межах субтропічного кліматичного поясу", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "Which of the statements is wrong?"}
+Repo.insert! %Answer{question_id: question.id, text: "Most of the precipitation falls in the Ukraine during the warmer seasons", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Ukraine is well provided with water", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Southern coast of Crimea is within the subtropical climatic zone", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Яка з річок України не належить до Азово-Чорноморського басейну?"}
-Repo.insert! %Answer{question_id: question.id, text: "Західний Буг", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Дністер", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Сейм", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "Which river does not belong to Ukraine Black Sea?"}
+Repo.insert! %Answer{question_id: question.id, text: "Western Bug", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Dniester", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Diet", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Які з відповідей є правильними?"}
-Repo.insert! %Answer{question_id: question.id, text: "Найменша солоність води Чорного моря спостерігається в його південній частині", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Більшість живих організмів Чорного моря мешкає в його глибинних шарах", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Максимальна глибина Азовського моря становить 15 м", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Більшість живих організмів Чорного моря мешкають на глибинах до 200 м", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Which answer is correct?"}
+Repo.insert! %Answer{question_id: question.id, text: "The lowest salinity of the Black Sea seen in its southern part", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Most living organisms inhabit the Black Sea in its deep layers", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "The maximum depth of the Sea of ​​Azov is 15 m", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Most living organisms inhabiting the Black Sea at depths up to 200 m", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Які ґрунти найпоширеніші в лісостеповій та степовій зонах України?"}
-Repo.insert! %Answer{question_id: question.id, text: "Чорноземи", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Дерново-підзолисті", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Сірі лісові", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "What are the most common soils in the forest-steppe and steppe zones of Ukraine?"}
+Repo.insert! %Answer{question_id: question.id, text: "Chernozem", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Sod-podzolic", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Gray forest", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "До якої із перелічених тектонічних структур приурочені родовища нафти та газу, поклади кам‘яного вугілля в Україні?"}
-Repo.insert! %Answer{question_id: question.id, text: "Дніпровсько-Донецька западина", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Воронезький кристалічний масив", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Український кристалічний щит", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "Which of these tectonic structures confined deposits of oil and gas deposits of coal in Ukraine?"}
+Repo.insert! %Answer{question_id: question.id, text: "Dnieper-Donetsk Basin", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Voronezh crystalline massif", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Ukrainian crystalline shield", correct: false}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Вугільними басейнами України є:"}
-Repo.insert! %Answer{question_id: question.id, text: "Причорноморський", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Донецький", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "Львівсько-Волинський", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "Coal basin of Ukraine are:"}
+Repo.insert! %Answer{question_id: question.id, text: "Black Sea", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Donetsk", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "Lviv-Volyn", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "Як називається відрив і переміщення мас гірських порід по схилу під дією сили тяжіння?"}
-Repo.insert! %Answer{question_id: question.id, text: "Площинний змив", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Карстоутворення", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "Зсув", correct: true}
+question = Repo.insert! %Question{test_id: test.id, text: "How is lead and moving masses of rock slope under the force of gravity?"}
+Repo.insert! %Answer{question_id: question.id, text: "Plane wash", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Karst", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "Landslide", correct: true}
 
-question = Repo.insert! %Question{test_id: test.id, text: "В якій природній зоні України найвища сільськогосподарська освоєність земель?"}
-Repo.insert! %Answer{question_id: question.id, text: "У степовій", correct: true}
-Repo.insert! %Answer{question_id: question.id, text: "У лісовій", correct: false}
-Repo.insert! %Answer{question_id: question.id, text: "У лісостеповій", correct: false}
+question = Repo.insert! %Question{test_id: test.id, text: "What natural zone of Ukraine is the highest agricultural development of the land?"}
+Repo.insert! %Answer{question_id: question.id, text: "The steppe", correct: true}
+Repo.insert! %Answer{question_id: question.id, text: "In the forest", correct: false}
+Repo.insert! %Answer{question_id: question.id, text: "In the forest-steppe", correct: false}
